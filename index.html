@@ -3,136 +3,415 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SS ANTI GEN - Smart Protection</title>
+  <title>SS ANTI GEN - Smart Protection For Modern Living</title>
+  
+  <!-- Tailwind CSS & FontAwesome Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Razorpay Checkout -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body class="bg-slate-50 text-slate-800 antialiased font-sans">
 
-  <!-- Header -->
-  <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <span class="text-2xl font-black text-blue-600 tracking-tight">SS ANTI GEN</span>
-      <a href="#products" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow hover:bg-blue-700 transition">
-        Shop Now
+  <!-- PWA Manifest Link -->
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white text-xs py-2 px-4 text-center font-medium flex justify-between items-center max-w-7xl mx-auto">
+    <span data-en="⚡ Free Express Shipping All Across India | 100% Quality Guaranteed" 
+          data-te="⚡ భారతదేశమంతటా ఉచిత ఎక్స్‌ప్రెస్ షిప్పింగ్ | 100% నాణ్యత హామీ">
+      ⚡ భారతదేశమంతటా ఉచిత ఎక్స్‌ప్రెస్ షిప్పింగ్ | 100% నాణ్యత హామీ
+    </span>
+    
+    <!-- Multi-Language Switcher Dropdown -->
+    <div class="flex items-center space-x-2">
+      <i class="fa-solid fa-globe text-sm"></i>
+      <select id="langSwitcher" onchange="switchLanguage(this.value)" class="bg-blue-900 border border-blue-400 text-white text-xs rounded px-2 py-0.5 focus:outline-none">
+        <option value="te" selected>తెలుగు (Telugu)</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ================= MAIN NAVIGATION BAR ================= -->
+  <header class="bg-white border-b sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center space-x-3">
+        <div class="w-11 h-11 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl font-bold shadow-md shadow-blue-500/30">
+          <i class="fa-solid fa-shield-virus"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black tracking-tight text-slate-900">SS ANTI <span class="text-blue-600">GEN</span></span>
+          <span class="block text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1">Radiation Shield</span>
+        </div>
       </a>
+
+      <!-- Desktop Menu Items -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+        <a href="#home" class="hover:text-blue-600 transition" data-en="Home" data-te="హోమ్">హోమ్</a>
+        <a href="#about" class="hover:text-blue-600 transition" data-en="About Us" data-te="మా గురించి">మా గురించి</a>
+        <a href="#vision" class="hover:text-blue-600 transition" data-en="Vision" data-te="లక్ష్యం & విజన్">లక్ష్యం & విజన్</a>
+        <a href="#products" class="hover:text-blue-600 transition" data-en="Products" data-te="ఉత్పత్తులు">ఉత్పత్తులు</a>
+        <a href="#rewards" class="hover:text-blue-600 transition" data-en="Rewards" data-te="రివార్డులు">రివార్డులు</a>
+        <a href="#contact" class="hover:text-blue-600 transition" data-en="Contact Us" data-te="సంప్రదించండి">సంప్రదించండి</a>
+      </nav>
+
+      <!-- Desktop Action Button -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="#products" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md transition text-sm flex items-center space-x-2">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span data-en="Shop Now" data-te="కొనండి">కొనండి</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleSidebar()" class="md:hidden text-2xl text-slate-700 focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="max-w-6xl mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center gap-10">
-    <div class="md:w-1/2 space-y-6 text-center md:text-left">
-      <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-        Next-Gen Protection
-      </span>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-        Smart Protection for Your <span class="text-blue-600">Everyday Devices</span>
-      </h1>
-      <p class="text-base md:text-lg text-slate-600 leading-relaxed">
-        స్మార్ట్‌ఫోన్‌లు, ల్యాప్‌టాప్‌ల నుంచి వెలువడే రేడియేషన్ ప్రభావం తగ్గించడానికి రూపొందించిన అధునాతన యాంటీ రేడియేషన్ చిప్.
-      </p>
-      <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-        <a href="#products" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg text-center transition">
-          ఆర్డర్ చేయండి (Buy Now)
-        </a>
-      </div>
-    </div>
-    <div class="md:w-1/2 flex justify-center">
-      <div class="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 p-8 flex flex-col justify-center items-center text-white shadow-2xl">
-        <div class="w-24 h-24 rounded-full border-4 border-white/30 flex items-center justify-center text-4xl mb-4 shadow-inner">
-          🛡️
-        </div>
-        <h3 class="text-xl font-bold">Anti-Radiation Shield</h3>
-        <p class="text-xs text-blue-100 mt-2 text-center">Ultra Slim & Premium Fit for Mobile Back Covers</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rewards Section -->
-  <section class="bg-slate-900 text-white py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center max-w-xl mx-auto mb-12">
-        <h2 class="text-3xl font-extrabold text-amber-400">✦ Referral Rewards</h2>
-        <p class="text-slate-400 mt-2 text-sm">మీ స్నేహితులకు సూచించండి, బోనస్ పొందండి</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-          <div class="text-blue-400 text-2xl font-bold mb-2">10 Referrals</div>
-          <div class="text-2xl font-black text-white">₹500 బోనస్</div>
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
-          <div class="text-blue-400 text-2xl font-bold mb-2">100 Referrals</div>
-          <div class="text-2xl font-black text-white">₹5,000 బోనస్</div>
-        </div>
-        <div class="bg-slate-800/80 p-6 rounded-xl border border-amber-500/40 text-center bg-gradient-to-b from-slate-800 to-amber-950/20">
-          <div class="text-amber-400 text-2xl font-bold mb-2">500 Referrals</div>
-          <div class="text-xl font-black text-white">మ్యాగ్నెటిక్ మ్యాట్రెస్ కాంబో</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Section -->
-  <section id="products" class="max-w-6xl mx-auto px-4 py-16">
-    <div class="text-center max-w-xl mx-auto mb-12">
-      <h2 class="text-3xl font-black text-slate-900">మా ఉత్పత్తులు (Products)</h2>
-      <p class="text-slate-600 mt-2 text-sm">మీకు కావాల్సిన ప్యాక్‌ని ఎంచుకోండి</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <!-- 1 Pack -->
-      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">సింగిల్ ప్యాక్</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">SS ANTI GEN Chip (1 Pc)</h3>
-          <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-3xl font-black text-slate-900">₹499</span>
-            <span class="text-slate-400 line-through text-sm">₹999</span>
-          </div>
-          <ul class="mt-6 space-y-3 text-sm text-slate-600">
-            <li>✓ మొబైల్ వెనుక సులభంగా అతికించవచ్చు</li>
-            <li>✓ రేడియేషన్ రక్షణ</li>
-            <li>✓ ఉచిత డెలివరీ</li>
-          </ul>
-        </div>
-        <button onclick="payNow(499, 'SS Anti Gen Single Pack')" class="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition">
-          కొనండి (Buy Now - ₹499)
+  <!-- ================= MOBILE SIDEBAR (DRAWER) ================= -->
+  <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity"></div>
+  <aside id="sidebar" class="fixed top-0 right-0 w-72 h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between p-6">
+    <div>
+      <div class="flex justify-between items-center pb-6 border-b">
+        <span class="text-xl font-black text-blue-600">SS ANTI GEN</span>
+        <button onclick="toggleSidebar()" class="text-2xl text-slate-500 hover:text-slate-900 focus:outline-none">
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
+      <nav class="flex flex-col space-y-4 mt-6 text-base font-semibold text-slate-700">
+        <a href="#home" onclick="toggleSidebar()" class="hover:text-blue-600 transition flex items-center space-x-3 py-2" data-en="Home" data-te="హోమ్"><i class="fa-solid fa-house w-6 text-blue-500"></i><span>హోమ్</span></a>
+        <a href="#about" onclick="toggleSidebar()" class="hover:text-blue-600 transition flex items-center space-x-3 py-2" data-en="About Us" data-te="మా గురించి"><i class="fa-solid fa-circle-info w-6 text-blue-500"></i><span>మా గురించి</span></a>
+        <a href="#vision" onclick="toggleSidebar()" class="hover:text-blue-600 transition flex items-center space-x-3 py-2" data-en="Vision" data-te="లక్ష్యం & విజన్"><i class="fa-solid fa-bullseye w-6 text-blue-500"></i><span>లక్ష్యం & విజన్</span></a>
+        <a href="#products" onclick="toggleSidebar()" class="hover:text-blue-600 transition flex items-center space-x-3 py-2" data-en="Products" data-te="ఉత్పత్తులు"><i class="fa-solid fa-shield-halved w-6 text-blue-500"></i><span>ఉత్పత్తులు</span></a>
+        <a href="#rewards" onclick="toggleSidebar()" class="hover:text-blue-600 transition flex items-center space-x-3 py-2" data-en="Rewards" data-te="రివార్డులు"><i class="fa-solid fa-gift w-6 text-blue-500"></i><span>రివార్డులు</span></a>
+        <a href="#contact" onclick="toggleSidebar()" class="hover:text-blue-600 transition flex items-center space-x-3 py-2" data-en="Contact Us" data-te="సంప్రదించండి"><i class="fa-solid fa-envelope w-6 text-blue-500"></i><span>సంప్రదించండి</span></a>
+      </nav>
+    </div>
+    <div>
+      <a href="#products" onclick="toggleSidebar()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl block text-center shadow-lg" data-en="Buy Protection Now" data-te="ఇప్పుడే కొనండి">ఇప్పుడే కొనండి</a>
+    </div>
+  </aside>
 
-      <!-- 4 Pack Combo -->
-      <div class="bg-white rounded-2xl p-6 border-2 border-blue-600 shadow-md flex flex-col justify-between relative">
-        <span class="absolute -top-3 right-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-          Best Value
+  <!-- ================= 1. HERO SECTION ================= -->
+  <section id="home" class="relative overflow-hidden bg-slate-900 text-white py-16 md:py-24">
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2 space-y-6 text-center md:text-left">
+        <span class="inline-block bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider" 
+              data-en="🛡️️ Certified EMF Protection" data-te="🛡️ ధృవీకరించబడిన రేడియేషన్ రక్షణ">
+          🛡️ ధృవీకరించబడిన రేడియేషన్ రక్షణ
         </span>
-        <div>
-          <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">ఫ్యామిలీ కాంబో</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">SS ANTI GEN Combo (4 Pcs)</h3>
-          <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-3xl font-black text-slate-900">₹1,799</span>
-            <span class="text-slate-400 line-through text-sm">₹3,996</span>
-          </div>
-          <ul class="mt-6 space-y-3 text-sm text-slate-600">
-            <li>✓ కుటుంబంలోని 4 ఫోన్‌లకు సరిపోతుంది</li>
-            <li>✓ ప్రీమియం ఫినిషింగ్</li>
-            <li>✓ ఫాస్ట్ డెలివరీ</li>
-          </ul>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight" 
+            data-en="Smart Protection for Your Everyday Devices" 
+            data-te="మీ రోజువారీ పరికరాలకు ఆధునిక స్మార్ట్ రక్షణ">
+          మీ రోజువారీ పరికరాలకు ఆధునిక స్మార్ట్ రక్షణ
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
+           data-en="Discover the SS ANTI GEN Anti Radiation Chip – a compact, premium-designed accessory engineered to neutralize harmful electromagnetic waves without compromising your network."
+           data-te="SS ANTI GEN యాంటీ రేడియేషన్ చిప్‌తో మొబైల్స్, ల్యాప్‌టాప్‌ల నుంచి వెలువడే హానికర విద్యుదయస్కాంత తరంగాలను అడ్డుకోండి. సిగ్నల్ మరియు బ్యాటరీకి ఎలాంటి అంతరాయం కలగదు.">
+          SS ANTI GEN యాంటీ రేడియేషన్ చిప్‌తో మొబైల్స్, ల్యాప్‌టాప్‌ల నుంచి వెలువడే హానికర విద్యుదయస్కాంత తరంగాలను అడ్డుకోండి. సిగ్నల్ మరియు బ్యాటరీకి ఎలాంటి అంతరాయం కలగదు.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2">
+          <a href="#products" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg shadow-blue-500/30 transition text-center" 
+             data-en="Order Now" data-te="ఆర్డర్ చేయండి">
+            ఆర్డర్ చేయండి
+          </a>
+          <a href="#about" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold py-3.5 px-8 rounded-xl transition text-center" 
+             data-en="Learn More" data-te="వివరాలు చూడండి">
+            వివరాలు చూడండి
+          </a>
         </div>
-        <button onclick="payNow(1799, 'SS Anti Gen Combo 4 Pack')" class="mt-8 w-full bg-slate-900 hover:bg-black text-white font-bold py-3 rounded-xl transition">
-          కొనండి (Buy Now - ₹1,799)
-        </button>
+      </div>
+      
+      <!-- Hero Banner Image -->
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative w-full max-w-md">
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-50"></div>
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80" 
+               alt="Smart Phone Protection" 
+               class="relative rounded-2xl shadow-2xl border border-slate-700 object-cover w-full h-[380px]">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t py-8 text-center text-sm text-slate-500">
-    <p>© 2026 SS ANTI GEN. All Rights Reserved.</p>
+  <!-- ================= 2. ABOUT US SECTION ================= -->
+  <section id="about" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" 
+               alt="About SS Anti Gen" 
+               class="rounded-3xl shadow-xl border border-slate-100 object-cover w-full h-[400px]">
+        </div>
+        <div class="space-y-6">
+          <span class="text-blue-600 font-bold text-xs uppercase tracking-widest" data-en="About SS ANTI GEN" data-te="మా గురించి (About Us)">
+            మా గురించి (About Us)
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight" 
+              data-en="Dedicated to Healthy Living in a Hyper-Connected World"
+              data-te="డిజిటల్ ప్రపంచంలో మీ ఆరోగ్యాన్ని కాపాడటమే మా ధ్యేయం">
+            డిజిటల్ ప్రపంచంలో మీ ఆరోగ్యాన్ని కాపాడటమే మా ధ్యేయం
+          </h2>
+          <p class="text-slate-600 leading-relaxed" 
+             data-en="In today's generation, smartphones and gadgets are inseparable from our daily lives. SS ANTI GEN focuses on bringing tested, durable, and highly effective radiation shielding accessories to protect users of all ages."
+             data-te="నేటి డిజిటల్ యుగంలో మొబైల్స్, ల్యాప్‌టాప్‌లు మరియు వై-ఫై పరికరాలు మన నిత్యజీవితంలో భాగమైపోయాయి. ఈ పరికరాల ద్వారా వెలువడే రేడియేషన్ ప్రభావం వల్ల తలనొప్పి, అలసట మరియు నిద్రలేమి సమస్యలు వస్తుంటాయి. SS ANTI GEN రూపొందించిన అత్యాధునిక చిప్ ఎలాంటి అవాంతరాలు లేకుండా కుటుంబానికి రక్షణ కల్పిస్తుంది.">
+            నేటి డిజిటల్ యుగంలో మొబైల్స్, ల్యాప్‌టాప్‌లు మరియు వై-ఫై పరికరాలు మన నిత్యజీవితంలో భాగమైపోయాయి. ఈ పరికరాల ద్వారా వెలువడే రేడియేషన్ ప్రభావం వల్ల తలనొప్పి, అలసట మరియు నిద్రలేమి సమస్యలు వస్తుంటాయి. SS ANTI GEN రూపొందించిన అత్యాధునిక చిప్ ఎలాంటి అవాంతరాలు లేకుండా కుటుంబానికి రక్షణ కల్పిస్తుంది.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+              <div class="text-3xl font-black text-blue-600">100%</div>
+              <div class="text-xs text-slate-500 font-semibold mt-1" data-en="Safe for All Ages" data-te="అందరికీ సురక్షితం">అందరికీ సురక్షితం</div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+              <div class="text-3xl font-black text-blue-600">0%</div>
+              <div class="text-xs text-slate-500 font-semibold mt-1" data-en="Signal Interference" data-te="సిగ్నల్ అంతరాయం లేదు">సిగ్నల్ అంతరాయం లేదు</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. VISION & MISSION SECTION ================= -->
+  <section id="vision" class="py-16 md:py-24 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-blue-600 font-bold text-xs uppercase tracking-widest" data-en="Our Purpose" data-te="మా లక్ష్యం & మార్గం">మా లక్ష్యం & మార్గం</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-12" data-en="Vision & Mission" data-te="విజన్ & మిషన్ (Vision & Mission)">విజన్ & మిషన్ (Vision & Mission)</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <!-- Vision -->
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden group hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3" data-en="Our Vision" data-te="మా విజన్ (Vision)">మా విజన్ (Vision)</h3>
+          <p class="text-slate-600 leading-relaxed" 
+             data-en="To build a healthier, radiation-conscious society where every electronic device user enjoys technology safely without compromising well-being."
+             data-te="భారతదేశంలో ప్రతి కుటుంబం సాంకేతికతను సురక్షితంగా, ఆరోగ్యానికి ఎలాంటి ముప్పు లేకుండా అనుభవించే వాతావరణాన్ని నిర్మించడమే మా ప్రధాన విజన్.">
+            భారతదేశంలో ప్రతి కుటుంబం సాంకేతికతను సురక్షితంగా, ఆరోగ్యానికి ఎలాంటి ముప్పు లేకుండా అనుభవించే వాతావరణాన్ని నిర్మించడమే మా ప్రధాన విజన్.
+          </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden group hover:shadow-lg transition">
+          <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3" data-en="Our Mission" data-te="మా మిషన్ (Mission)">మా మిషన్ (Mission)</h3>
+          <p class="text-slate-600 leading-relaxed" 
+             data-en="To deliver affordable, scientifically crafted anti-radiation products directly to households while providing rewarding referral opportunities."
+             data-te="అత్యున్నత ప్రమాణాలు కలిగిన యాంటీ-రేడియేషన్ ఉత్పత్తులను సరసమైన ధరకే ప్రతి ఒక్కరికీ అందుబాటులోకి తీసుకురావడం మరియు రిఫెరల్ ద్వారా రివార్డులను అందించడం మా మిషన్.">
+            అత్యున్నత ప్రమాణాలు కలిగిన యాంటీ-రేడియేషన్ ఉత్పత్తులను సరసమైన ధరకే ప్రతి ఒక్కరికీ అందుబాటులోకి తీసుకురావడం మరియు రిఫెరల్ ద్వారా రివార్డులను అందించడం మా మిషన్.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. PRODUCTS SECTION ================= -->
+  <section id="products" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest" data-en="Choose Your Protection" data-te="ఉత్పత్తులు & ధరలు">ఉత్పత్తులు & ధరలు</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2" data-en="SS ANTI GEN Products" data-te="మా ఉత్పత్తులు (Products)">మా ఉత్పత్తులు (Products)</h2>
+        <p class="text-slate-500 mt-3" data-en="Ultra-slim design that fits perfectly behind any mobile cover." data-te="మొబైల్ ఫోన్ వెనుక లేదా కవర్ లోపల అతికించడానికి అనువైన స్లిమ్ డిజైన్.">మొబైల్ ఫోన్ వెనుక లేదా కవర్ లోపల అతికించడానికి అనువైన స్లిమ్ డిజైన్.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Single Pack -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-6 flex flex-col justify-between hover:shadow-xl transition">
+          <div>
+            <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=600&q=80" 
+                 alt="Single Pack" 
+                 class="w-full h-56 object-cover rounded-2xl mb-6">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider" data-en="Single Pack" data-te="సింగిల్ ప్యాక్">సింగిల్ ప్యాక్</span>
+            <h3 class="text-2xl font-bold text-slate-900 mt-1">SS ANTI GEN Chip (1 Pc)</h3>
+            <div class="mt-4 flex items-baseline gap-2">
+              <span class="text-4xl font-black text-slate-900">₹499</span>
+              <span class="text-slate-400 line-through text-base">₹999</span>
+              <span class="text-green-600 font-bold text-sm">50% OFF</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600">
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> <span data-en="1x Anti Radiation Chip" data-te="1x యాంటీ రేడియేషన్ చిప్">1x యాంటీ రేడియేషన్ చిప్</span></li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> <span data-en="Self-Adhesive 3M Backing" data-te="సులభంగా అతికించుకునే 3M టేప్">సులభంగా అతికించుకునే 3M టేప్</span></li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> <span data-en="Free All-India Delivery" data-te="ఉచిత ఆల్-ఇండియా డెలివరీ">ఉచిత ఆల్-ఇండియా డెలివరీ</span></li>
+            </ul>
+          </div>
+          <button onclick="payNow(499, 'SS Anti Gen Single Pack')" class="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition" data-en="Buy Now (₹499)" data-te="ఇప్పుడే కొనండి (₹499)">
+            ఇప్పుడే కొనండి (₹499)
+          </button>
+        </div>
+
+        <!-- 4-Pack Combo -->
+        <div class="bg-white rounded-3xl border-2 border-blue-600 shadow-xl p-6 flex flex-col justify-between relative hover:shadow-2xl transition">
+          <span class="absolute -top-3.5 right-8 bg-blue-600 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
+            Best Value (ఫ్యామిలీ ప్యాక్)
+          </span>
+          <div>
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80" 
+                 alt="Combo Pack" 
+                 class="w-full h-56 object-cover rounded-2xl mb-6">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider" data-en="Combo Pack" data-te="ఫ్యామిలీ కాంబో (4 పీసెస్)">ఫ్యామిలీ కాంబో (4 పీసెస్)</span>
+            <h3 class="text-2xl font-bold text-slate-900 mt-1">SS ANTI GEN Combo (4 Pcs)</h3>
+            <div class="mt-4 flex items-baseline gap-2">
+              <span class="text-4xl font-black text-slate-900">₹1,799</span>
+              <span class="text-slate-400 line-through text-base">₹3,996</span>
+              <span class="text-green-600 font-bold text-sm">55% OFF</span>
+            </div>
+            <ul class="mt-6 space-y-3 text-sm text-slate-600">
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> <span data-en="4x Anti Radiation Chips" data-te="4x యాంటీ రేడియేషన్ చిప్స్ (కుటుంబానికి)">4x యాంటీ రేడియేషన్ చిప్స్ (కుటుంబానికి)</span></li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> <span data-en="Premium Gift Packaging" data-te="ప్రీమియం గిఫ్ట్ ప్యాకింగ్">ప్రీమియం గిఫ్ట్ ప్యాకింగ్</span></li>
+              <li><i class="fa-solid fa-check text-green-500 mr-2"></i> <span data-en="Fast Priority Dispatch" data-te="ఫాస్ట్ ఎక్స్‌ప్రెస్ డిస్పాచ్">ఫాస్ట్ ఎక్స్‌ప్రెస్ డిస్పాచ్</span></li>
+            </ul>
+          </div>
+          <button onclick="payNow(1799, 'SS Anti Gen Combo 4 Pack')" class="mt-8 w-full bg-slate-900 hover:bg-black text-white font-bold py-3.5 rounded-xl shadow-lg transition" data-en="Buy Combo (₹1,799)" data-te="కాంబో కొనండి (₹1,799)">
+            కాంబో కొనండి (₹1,799)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. REWARDS SECTION ================= -->
+  <section id="rewards" class="bg-slate-900 text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-amber-400 font-bold text-xs uppercase tracking-widest" data-en="Refer & Earn" data-te="రిఫర్ చేయండి - బోనస్ గెలవండి">రిఫర్ చేయండి - బోనస్ గెలవండి</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-12" data-en="✦ Member Rewards Plan" data-te="✦ మెంబర్ రివార్డ్స్ ప్లాన్">✦ మెంబర్ రివార్డ్స్ ప్లాన్</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+          <div class="text-blue-400 text-xl font-bold mb-2">10 Referrals</div>
+          <div class="text-3xl font-black text-white">₹500 <span class="text-sm font-normal text-slate-400">Bonus</span></div>
+        </div>
+        <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+          <div class="text-blue-400 text-xl font-bold mb-2">100 Referrals</div>
+          <div class="text-3xl font-black text-white">₹5,000 <span class="text-sm font-normal text-slate-400">Bonus</span></div>
+        </div>
+        <div class="bg-slate-800 p-8 rounded-3xl border border-amber-500/50 bg-gradient-to-b from-slate-800 to-amber-950/20">
+          <div class="text-amber-400 text-xl font-bold mb-2">500 Referrals</div>
+          <div class="text-xl font-black text-white">Magnetic Mattress Combo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. CONTACT US SECTION ================= -->
+  <section id="contact" class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest" data-en="Get in Touch" data-te="సంప్రదించండి">సంప్రదించండి</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2" data-en="Contact Us" data-te="మమ్మల్ని సంప్రదించండి (Contact Us)">మమ్మల్ని సంప్రదించండి (Contact Us)</h2>
+        <p class="text-slate-500 mt-2" data-en="Have questions? Our support team is here to help 24/7." data-te="ఏవైనా సందేహాలుంటే మా సపోర్ట్ టీమ్‌ను సంప్రదించండి.">ఏవైనా సందేహాలుంటే మా సపోర్ట్ టీమ్‌ను సంప్రదించండి.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Contact Information -->
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl border border-slate-200">
+            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900" data-en="Office Address" data-te="ఆఫీస్ చిరునామా">ఆఫీస్ చిరునామా</h4>
+              <p class="text-slate-600 text-sm mt-1">SS ANTI GEN Hub, Main Road, Hyderabad, Telangana - 500001</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl border border-slate-200">
+            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900" data-en="Phone / WhatsApp" data-te="ఫోన్ / వాట్సాప్">ఫోన్ / వాట్సాప్</h4>
+              <p class="text-slate-600 text-sm mt-1">+91 98765 43210</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl border border-slate-200">
+            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900" data-en="Email Support" data-te="ఇమెయిల్ సపోర్ట్">ఇమెయిల్ సపోర్ట్</h4>
+              <p class="text-slate-600 text-sm mt-1">support@ssantigen.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form onsubmit="handleFormSubmit(event)" class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-2" data-en="Your Name" data-te="మీ పేరు">మీ పేరు</label>
+            <input type="text" required placeholder="రమేష్ కుమార్" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-2" data-en="Phone Number" data-te="ఫోన్ నంబర్">ఫోన్ నంబర్</label>
+            <input type="tel" required placeholder="9876543210" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-2" data-en="Message" data-te="మీ సందేశం">మీ సందేశం</label>
+            <textarea rows="3" placeholder="మీ సందేశాన్ని ఇక్కడ టైప్ చేయండి..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-600"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md transition" data-en="Send Message" data-te="సందేశం పంపండి">
+            సందేశం పంపండి
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+    <p>© 2026 SS ANTI GEN. All Rights Reserved. Designed for Health & Protection.</p>
   </footer>
 
-  <!-- Script for Razorpay & PWA -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
+    // 1. Mobile Sidebar Toggle Function
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebarOverlay');
+      const isOpen = !sidebar.classList.contains('translate-x-full');
+      
+      if (isOpen) {
+        sidebar.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+      } else {
+        sidebar.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+      }
+    }
+
+    // 2. Multi-Language Switcher (Telugu & English)
+    function switchLanguage(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        if (lang === 'en') {
+          el.innerText = el.getAttribute('data-en');
+        } else {
+          el.innerText = el.getAttribute('data-te');
+        }
+      });
+    }
+
+    // 3. Form Submit Alert
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert("ధన్యవాదాలు! మీ సందేశం మాకు అందింది. త్వరలోనే మిమ్మల్ని సంప్రదిస్తాం.");
+      e.target.reset();
+    }
+
+    // 4. Razorpay Checkout Handler
     function payNow(amount, productName) {
       const options = {
         "key": "rzp_test_YOUR_KEY_HERE",
@@ -141,21 +420,20 @@
         "name": "SS ANTI GEN",
         "description": productName,
         "handler": function (response) {
-          alert("Payment Successful! ID: " + response.razorpay_payment_id);
+          alert("చెల్లింపు విజయవంతమైంది!\nPayment ID: " + response.razorpay_payment_id);
         },
         "prefill": {
           "name": "Customer Name",
           "email": "customer@example.com",
           "contact": "9876543210"
         },
-        "theme": {
-          "color": "#2563eb"
-        }
+        "theme": { "color": "#2563eb" }
       };
       const rzp = new Razorpay(options);
       rzp.open();
     }
 
+    // 5. Service Worker Registration (PWA)
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js");
     }
