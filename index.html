@@ -1,26 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="te">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SS ANTI GEN - Smart Radiation Protection</title>
+  <title>SS ANTI GEN - Smart Protection</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans">
 
   <!-- Header -->
   <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <span class="text-2xl font-black text-blue-600 tracking-tight">SS ANTI GEN</span>
-      </div>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-        <a href="#products" class="hover:text-blue-600 transition">Products</a>
-        <a href="#rewards" class="hover:text-blue-600 transition">Rewards</a>
-        <a href="#benefits" class="hover:text-blue-600 transition">Why Us</a>
-      </nav>
+      <span class="text-2xl font-black text-blue-600 tracking-tight">SS ANTI GEN</span>
       <a href="#products" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow hover:bg-blue-700 transition">
         Shop Now
       </a>
@@ -37,19 +30,16 @@
         Smart Protection for Your <span class="text-blue-600">Everyday Devices</span>
       </h1>
       <p class="text-base md:text-lg text-slate-600 leading-relaxed">
-        స్మార్ట్‌ఫోన్‌‌లు, ల్యాప్‌టాప్‌ల నుంచి వెలువడే రేడియేషన్ ప్రభావం తగ్గించడానికి రూపొందించిన ఆధునిక యాంటీ రేడియేషన్ చిప్.
+        స్మార్ట్‌ఫోన్‌లు, ల్యాప్‌టాప్‌ల నుంచి వెలువడే రేడియేషన్ ప్రభావం తగ్గించడానికి రూపొందించిన అధునాతన యాంటీ రేడియేషన్ చిప్.
       </p>
       <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
         <a href="#products" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg text-center transition">
           ఆర్డర్ చేయండి (Buy Now)
         </a>
-        <a href="#rewards" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-6 rounded-lg text-center transition">
-          రిఫెరల్ ఆఫర్లు
-        </a>
       </div>
     </div>
     <div class="md:w-1/2 flex justify-center">
-      <div class="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 p-8 flex flex-col justify-center items-center text-white shadow-2xl relative overflow-hidden">
+      <div class="w-72 h-72 md:w-80 md:h-80 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 p-8 flex flex-col justify-center items-center text-white shadow-2xl">
         <div class="w-24 h-24 rounded-full border-4 border-white/30 flex items-center justify-center text-4xl mb-4 shadow-inner">
           🛡️
         </div>
@@ -60,11 +50,11 @@
   </section>
 
   <!-- Rewards Section -->
-  <section id="rewards" class="bg-slate-900 text-white py-16">
+  <section class="bg-slate-900 text-white py-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center max-w-xl mx-auto mb-12">
         <h2 class="text-3xl font-extrabold text-amber-400">✦ Referral Rewards</h2>
-        <p class="text-slate-400 mt-2 text-sm">మీ స్నేహితులకు సూచించండి, అద్భుతమైన రివార్డులు గెలుచుకోండి</p>
+        <p class="text-slate-400 mt-2 text-sm">మీ స్నేహితులకు సూచించండి, బోనస్ పొందండి</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700 text-center">
@@ -87,11 +77,11 @@
   <section id="products" class="max-w-6xl mx-auto px-4 py-16">
     <div class="text-center max-w-xl mx-auto mb-12">
       <h2 class="text-3xl font-black text-slate-900">మా ఉత్పత్తులు (Products)</h2>
-      <p class="text-slate-600 mt-2 text-sm">మీకు కావలసిన ప్యాక్‌ని ఎంచుకోండి</p>
+      <p class="text-slate-600 mt-2 text-sm">మీకు కావాల్సిన ప్యాక్‌ని ఎంచుకోండి</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <!-- Single Pack -->
+      <!-- 1 Pack -->
       <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
         <div>
           <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">సింగిల్ ప్యాక్</span>
@@ -101,8 +91,8 @@
             <span class="text-slate-400 line-through text-sm">₹999</span>
           </div>
           <ul class="mt-6 space-y-3 text-sm text-slate-600">
-            <li>✓ మొబైల్ వెనుక అతికించుకోవచ్చు</li>
-            <li>✓ దీర్ఘకాలిక రక్షణ</li>
+            <li>✓ మొబైల్ వెనుక సులభంగా అతికించవచ్చు</li>
+            <li>✓ రేడియేషన్ రక్షణ</li>
             <li>✓ ఉచిత డెలివరీ</li>
           </ul>
         </div>
@@ -111,22 +101,22 @@
         </button>
       </div>
 
-      <!-- Combo Pack -->
+      <!-- 4 Pack Combo -->
       <div class="bg-white rounded-2xl p-6 border-2 border-blue-600 shadow-md flex flex-col justify-between relative">
         <span class="absolute -top-3 right-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
           Best Value
         </span>
         <div>
           <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">ఫ్యామిలీ కాంబో</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">SS ANTI GEN Combo Pack (4 Pcs)</h3>
+          <h3 class="text-xl font-bold text-slate-900 mt-1">SS ANTI GEN Combo (4 Pcs)</h3>
           <div class="mt-4 flex items-baseline gap-2">
             <span class="text-3xl font-black text-slate-900">₹1,799</span>
             <span class="text-slate-400 line-through text-sm">₹3,996</span>
           </div>
           <ul class="mt-6 space-y-3 text-sm text-slate-600">
             <li>✓ కుటుంబంలోని 4 ఫోన్‌లకు సరిపోతుంది</li>
-            <li>✓ ప్రీమియం డిజైన్ & క్వాలిటీ</li>
-            <li>✓ ఫాస్ట్ ఎక్స్‌ప్రెస్ డెలివరీ</li>
+            <li>✓ ప్రీమియం ఫినిషింగ్</li>
+            <li>✓ ఫాస్ట్ డెలివరీ</li>
           </ul>
         </div>
         <button onclick="payNow(1799, 'SS Anti Gen Combo 4 Pack')" class="mt-8 w-full bg-slate-900 hover:bg-black text-white font-bold py-3 rounded-xl transition">
@@ -141,7 +131,7 @@
     <p>© 2026 SS ANTI GEN. All Rights Reserved.</p>
   </footer>
 
-  <!-- Script for Razorpay -->
+  <!-- Script for Razorpay & PWA -->
   <script>
     function payNow(amount, productName) {
       const options = {
@@ -164,6 +154,10 @@
       };
       const rzp = new Razorpay(options);
       rzp.open();
+    }
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
     }
   </script>
 </body>
